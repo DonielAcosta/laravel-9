@@ -22,7 +22,7 @@ class PageController extends Controller
     return view('blog', ['posts' => $posts]) ;
   }
 
-  public function pots($slug){
+  public function post($slug){
      //consultar base de datos
     $post = $slug;
     
