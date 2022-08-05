@@ -12,11 +12,11 @@
   <div class="container px-4 mx-auto">
     <header class="flex justify-between items-center py-4">
       <div class="flex items-center flex-grow gap-4">
-        <a href="{{ route('home') }}">
+        <a href="{{ route('home') }}" method="GET">
           <img src="{{ asset('images/logo.png') }}" class="h-12">
         </a>
-        <form action="">
-          <input type="text" placeholder="Buscar">
+        <form action="{{ route('home') }}" class="flex-grow">
+          <input type="text" name="search" placeholder="Buscar" value="{{ request('search') }}" class="border-gray-200 rounded py-2 px-4 w-1/2">
         </form>
       </div>
       @auth
