@@ -9,24 +9,14 @@ class PageController extends Controller
 {
 	public function home() 
 	{
-    	return view('home');
-    }
+    $posts = Post::latest()->paginate();
 
-    public function blog() 
-    {
-        // $posts = Post::get();
-        // $post = Post::first();
-        // $post = Post::find(25);
+    	return view('home', ['posts' => $posts]);
+  }
 
-        // dd($post);
 
-        $posts = Post::latest()->paginate();
-
-        return view('blog', ['posts' => $posts]);
-    }
-
-    public function post(Post $post) 
-    {
-        return view('post', ['post' => $post]);
-    }
+  public function post(Post $post) 
+  {
+      return view('post', ['post' => $post]);
+  }
 }
